@@ -1,0 +1,109 @@
+/*
+ * des.h
+ *
+ *  Created on: Mar 11, 2022
+ *      Author: Tolulope
+ */
+
+#ifndef DES_H_
+#define DES_H_
+
+#define NUM_STAES 8;
+
+typedef enum{
+	START_STATE = 0,
+	SCAN_STATE = 1,
+	UNLOCK_STATE = 2,
+	OPEN_STATE = 3,
+	WEIGHT_STATE = 4,
+	CLOSE_STATE = 5,
+	LOCK_STATE =6,
+	EXIT_STATE = 7
+}State;
+
+#define NUM_INPUTS 12
+
+typedef enum{
+	LEFT_SCAN = 0,
+	RIGHT_SCAN = 1,
+	GAURD_LEFT_UNLOCK = 2,
+	GAURD_RIGHT_UNLOCK = 3,
+	LEFT_OPEN = 4,
+	RIGHT_OPEN = 5,
+	WEIGHT_SCAN = 6,
+	LEFT_CLOSE = 7,
+	RIGHT_CLOSE = 8,
+	GAURD_LEFT_LOCK = 9,
+	GAURD_RIGHT_LOCK = 10,
+	EXIT = 11
+}Input;
+
+const char *inMessage[NUM_INPUTS] = {
+	"LS",
+	"RS",
+	"GLU",
+	"GRU",
+	"LO",
+	"RO",
+	"WS",
+	"LC",
+	"RC",
+	"GLL",
+	"GRL",
+	"EXIT"
+};
+
+#define NUM_OUTPUTS 13
+typedef enum{
+	START_MSG = 0,
+	LEFT_SCAN_MSG = 1,
+	RIGHT_SCAN_MSG = 2,
+	LEFT_UNLOCK_MSG = 3,
+	RIGH_UNLOCK_MSG = 4,
+	LEFT_OPEN_MSG = 5,
+	RIGHT_OPEN_MSG = 6,
+	WEIGHT_MSG = 7,
+	LEFT_CLOSE_MSG = 8,
+	RIGHT_CLOSE_MSG =9,
+	LEFT_LOCK_MSG = 10,
+	RIGHT_LOCK_MSG = 11,
+	EXIT_MSG = 12
+
+
+}Output;
+
+const char *outMessage[NUM_OUTPUTS] = {
+	"Start Message",
+	"Person scanned ID, Id = ",
+	"Person scanned ID, Id =",
+	"Left door unlocked by Guard",
+	"Right door unlocked by Guard",
+	"Person Opened Left door",
+	"Person opened right door",
+	"Person weighed, Weight = ",
+	"Left door closed (Automatically)",
+	"Right door closed (Automatically)",
+	"Left door locked by Guard",
+	"Right door locked by Guard",
+	"Exit display"
+
+};
+
+#define INBOUND 0
+#define OUTBOUND 1
+
+typedef struct {
+	int ID;
+	int weight;
+	int direction; \\ [INBOUND, OUTBOUND]
+
+}Person;
+
+typedef struct{
+	int OUT_MSG_NO;
+	Person p;
+
+}Display;
+
+
+#endif /* DES_H_ */

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="LaunchTerminalSettingsDialog">
+		<item value="Local Terminal" key="terminalLabel"/>
+		<section name="SettingsPanelControl">
+			<section name="SSH Terminal">
+				<item value="198.168.138.128" key="lastHost"/>
+				<list key="hosts">
+					<item value="198.168.138.128|ssh.keep_alive:300:ip.port:22:ip.host:198.168.138.128:ssh.user:Tolulope:savePassword:true:encoding:UTF-8:timeout:0:saveUser:true"/>
+				</list>
+			</section>
+			<section name="Git Bash">
+			</section>
+			<section name="Local Terminal">
+				<item value="UTF-8" key="encoding"/>
+			</section>
+		</section>
+	</section>
+</section>
